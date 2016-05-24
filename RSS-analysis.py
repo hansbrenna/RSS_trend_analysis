@@ -4,6 +4,19 @@ import pandas as pd
 import datetime as dt
 import matplotlib.pyplot as plt
 import seaborn as sns
+import wget
+import os
+
+download_data=True
+"""Download updatet input data"""
+if download_data:
+    try:    
+        os.remove('RSS_TS_channel_TLT_Global_Land_And_Sea_v03_3.txt')
+        url='http://data.remss.com/msu/graphics/TLT/time_series/RSS_TS_channel_TLT_Global_Land_And_Sea_v03_3.txt'
+        f = wget.download(url)
+    except:
+        url='http://data.remss.com/msu/graphics/TLT/time_series/RSS_TS_channel_TLT_Global_Land_And_Sea_v03_3.txt'
+        f = wget.download(url)
 
 with open('RSS_TS_channel_TLT_Global_Land_And_Sea_v03_3.txt') as file_in:
     d=0;i=0; y=[];m=[];T=[]
