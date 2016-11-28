@@ -36,6 +36,7 @@ mon = np.array(m)
 time = pd.date_range('1978-1','2017-1',freq='M')
 
 data=pd.DataFrame(data={'temp':temp},index=time)
+data_bu = data.copy(deep=True)
 
 for i in xrange(len(temp)):
     if data.temp.iloc[i] == -99.900:
@@ -46,7 +47,7 @@ data = data.dropna()
 fig1 = plt.figure(num=1,figsize=(10,5))
 fig1.hold()
 
-plot_yrs=['1979-01-31','1997-01-31','1997-06-30','1998-01-31','1998-06-30','1999-01-31','1999-06-30']
+plot_yrs=['1979-01-31','1996-07-31','1997-01-31','1997-06-30','1998-01-31','1998-06-30','1999-01-31','1999-06-30']
 
 df = pd.DataFrame(data={'trend':np.zeros(len(data.temp))},index=data.index)
 
